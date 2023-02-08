@@ -1,0 +1,11 @@
+.venv/
+.env
+/*/.env
+/*/.idea/
+/*/.serverless/
+/*/*/.env
+/*/*/.venv/
+/*/*/node_modules/
+/*/*/.idea/
+/*/*/.serverless/
+/back/aws-python-flask-dynamodb-api-project/package-lock.json
