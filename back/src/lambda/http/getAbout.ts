@@ -10,7 +10,8 @@ import { getAboutForUser } from '../../helpers/trainings'
 
 export const handler = middy(
   async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
-    const about = await getAboutForUser(event)
+  logger.info('about', {'event': event })
+    const aboutData = await getAboutForUser(event)
     return {
       statusCode: 200,
       headers: {

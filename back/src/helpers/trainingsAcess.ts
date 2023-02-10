@@ -4,6 +4,7 @@ const AWSXRay = require('aws-xray-sdk')
 import { DocumentClient } from 'aws-sdk/clients/dynamodb'
 import { createLogger } from '../utils/logger'
 import { TrainingItem } from '../models/TrainingItem'
+import { AboutItem } from '../models/AboutItem'
 import { TrainingUpdate } from '../models/TrainingUpdate';
 
 const XAWS = AWSXRay.captureAWS(AWS)
@@ -17,9 +18,24 @@ export class TrainingAccess {
     private readonly trainingsTable = process.env.TRAININGS_TABLE
   ) {}
 
-  async getTrainingsForUser(userId: string): Promise<TrainingItem[]> {
-    logger.info('Getting all trainingItems1', {'userId': userId })
+  async getAboutForUser(userId: string): Promise<AboutItem[]> {
+  const logger = createLogger('getAboutForUser query')
+    const result = await this.docClient
+      .query({
+        TableName: this.trainingsTable,
+        KeyConditionExpression: 'userId = :userId',
+        ExpressionAttributeValues: {
+          ':userId': userId
+        },
+        ScanIndexForward: false
+      })
+      .promise()
+    const logger = createLogger('result',{'result':result.Items})
+    const items = result.Items
+    return items as TrainingItem[]
+  }
 
+  async getTrainingsForUser(userId: string): Promise<TrainingItem[]> {
     const result = await this.docClient
       .query({
         TableName: this.trainingsTable,
@@ -32,7 +48,6 @@ export class TrainingAccess {
       .promise()
 
     const items = result.Items
-    logger.info('Getting all trainingItems2', {'items': items })
     return items as TrainingItem[]
   }
 
