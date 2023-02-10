@@ -19,7 +19,8 @@ export class TrainingAccess {
   ) {}
 
   async getAboutForUser(userId: string): Promise<AboutItem[]> {
-  const logger = createLogger('getAboutForUser query')
+  logger.info('getAboutForUser query')
+  logger.info('userId',{'userId':userId})
     const result = await this.docClient
       .query({
         TableName: this.trainingsTable,
@@ -30,12 +31,13 @@ export class TrainingAccess {
         ScanIndexForward: false
       })
       .promise()
-    const logger = createLogger('result',{'result':result.Items})
+    logger.info('result',{'result':result.Items})
     const items = result.Items
     return items as TrainingItem[]
   }
 
   async getTrainingsForUser(userId: string): Promise<TrainingItem[]> {
+
     const result = await this.docClient
       .query({
         TableName: this.trainingsTable,
@@ -46,7 +48,7 @@ export class TrainingAccess {
         ScanIndexForward: false
       })
       .promise()
-
+    logger.info('getTrainingsForUser',{'result':result.Items})
     const items = result.Items
     return items as TrainingItem[]
   }

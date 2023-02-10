@@ -43,10 +43,10 @@ export async function getTrainingsForUser(
 }
 
 export async function getAboutForUser(
-logger.info('getAboutForUser')
   event: APIGatewayProxyEvent
 ): Promise<AboutItem[]> {
   const userId = getUserId(event)
+  logger.info('getAboutForUser')
   return await trainingAccess.getAboutForUser(userId)
 }
 
