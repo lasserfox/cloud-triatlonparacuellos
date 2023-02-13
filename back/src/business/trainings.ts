@@ -1,5 +1,5 @@
-import { TrainingAccess } from './trainingsAcess'
-import { AttachmentUtils } from './attachmentUtils';
+import { TrainingAccess } from '../data/trainingsAcess'
+import { AttachmentUtils } from '../utils/attachmentUtils';
 import { TrainingItem } from '../models/TrainingItem'
 import { AboutItem } from '../models/AboutItem'
 import { CreateTrainingRequest } from '../requests/CreateTrainingRequest'
