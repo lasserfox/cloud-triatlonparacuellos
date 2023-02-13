@@ -3,7 +3,7 @@ import 'source-map-support/register'
 import * as middy from 'middy'
 import { cors, httpErrorHandler } from 'middy/middlewares'
 import { CreateTrainingRequest } from '../../requests/CreateTrainingRequest'
-import { createTraining } from '../../helpers/trainings'
+import { createTraining } from '../../business/trainings'
 
 import { createLogger } from '../../utils/logger'
 const logger = createLogger('createTraining')

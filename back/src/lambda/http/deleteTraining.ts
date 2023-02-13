@@ -3,7 +3,7 @@ import 'source-map-support/register'
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda'
 import * as middy from 'middy'
 import { cors, httpErrorHandler } from 'middy/middlewares'
-import { deleteTrainingItem } from '../../helpers/trainings'
+import { deleteTrainingItem } from '../../business/trainings'
 import { createLogger } from '../../utils/logger'
 const logger = createLogger('deleteTraining')
 

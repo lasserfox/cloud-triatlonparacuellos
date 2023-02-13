@@ -3,7 +3,7 @@ import 'source-map-support/register'
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda'
 import * as middy from 'middy'
 import { cors, httpErrorHandler } from 'middy/middlewares'
-import { trainingItemExists, updateTrainingItem } from '../../helpers/trainings'
+import { trainingItemExists, updateTrainingItem } from '../../business/trainings'
 import { UpdateTrainingRequest } from '../../requests/UpdateTrainingRequest'
 
 import { createLogger } from '../../utils/logger'

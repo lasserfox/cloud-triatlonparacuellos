@@ -6,7 +6,7 @@ import { cors, httpErrorHandler } from 'middy/middlewares'
 import { createLogger } from '../../utils/logger'
 const logger = createLogger('generateUpload')
 
-import { createAttachmentPresignedUrl, trainingItemExists } from '../../helpers/trainings'
+import { createAttachmentPresignedUrl, trainingItemExists } from '../../business/trainings'
 
 export const handler = middy(
   async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {

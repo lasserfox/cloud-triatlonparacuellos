@@ -6,7 +6,7 @@ import { cors, httpErrorHandler } from 'middy/middlewares'
 import { createLogger } from '../../utils/logger'
 const logger = createLogger('getAbout')
 
-import { getAboutForUser } from '../../helpers/trainings'
+import { getAboutForUser } from '../../business/trainings'
 
 export const handler = middy(
   async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {

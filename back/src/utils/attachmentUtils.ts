@@ -4,7 +4,7 @@ import * as AWSXRay from 'aws-xray-sdk'
 const XAWS = AWSXRay.captureAWS(AWS)
 
 // TODO: Implement the fileStogare logic
-import { TrainingAccess } from './trainingsAcess'
+import { TrainingAccess } from '../data/trainingsAcess'
 
 export class AttachmentUtils {
   constructor(
